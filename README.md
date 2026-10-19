@@ -38,12 +38,14 @@ The Linux System Health Monitor automates routine system-health checks using she
 
 ## Repository Structure
 
+```text
 linux-system-health-monitor/
 ├── health_monitor.sh    # Resource monitoring and alert logic
 ├── send_alert.py        # SMTP email notification utility
 ├── README.md            # Project documentation
+├── LICENSE              # MIT License
 └── .gitignore           # Excludes local and sensitive files
-
+```
 
 Runtime logs, cooldown state, local credentials, and backup files are excluded from version control.
 
@@ -59,60 +61,60 @@ Runtime logs, cooldown state, local credentials, and backup files are excluded f
 
 Clone the repository and enter the project directory:
 
-bash
-git clone https://github.com/YOUR_USERNAME/linux-system-health-monitor.git
+```bash
+git clone https://github.com/Shivaniyadav628/linux-system-health-monitor.git
 cd linux-system-health-monitor
-
+```
 
 Make the scripts executable:
 
-bash
+```bash
 chmod +x health_monitor.sh send_alert.py
-
+```
 
 ### Email Configuration
 
 Create a local configuration file outside the repository:
 
-bash
+```bash
 nano ~/.health-monitor.env
-
+```
 
 Configure the following environment values using your own credentials:
 
-bash
+```bash
 SMTP_USER="your_gmail_address@gmail.com"
 SMTP_APP_PASSWORD="your_gmail_app_password"
 SMTP_TO="recipient@example.com"
+```
 
+Replace the example values with your own configuration. Never put real credentials in the README or commit them to GitHub.
 
 Restrict access to the configuration file:
 
-bash
+```bash
 chmod 600 ~/.health-monitor.env
-
-
-Never commit real credentials, application passwords, or private configuration files.
+```
 
 ## Usage
 
 Run the monitor manually:
 
-bash
+```bash
 ./health_monitor.sh
-
+```
 
 Inspect recent monitoring reports:
 
-bash
+```bash
 tail -n 30 health.log
-
+```
 
 Inspect recorded warnings:
 
-bash
+```bash
 tail -n 30 warnings.log
-
+```
 
 The log files are generated at runtime and are intentionally not tracked by Git.
 
@@ -120,21 +122,21 @@ The log files are generated at runtime and are intentionally not tracked by Git.
 
 Configure the user crontab:
 
-bash
+```bash
 crontab -e
-
+```
 
 Add the following entry, adjusting the directory if necessary:
 
-cron
+```cron
 */5 * * * * cd ~/linux-practice && ./health_monitor.sh >> ~/linux-practice/health.log 2>&1
-
+```
 
 Verify the schedule:
 
-bash
+```bash
 crontab -l
-
+```
 
 ## Alert Policy
 
@@ -172,4 +174,16 @@ The scheduled email test used a separate temporary script and did not change the
 
 ## License
 
-A license has not yet been selected. Add an appropriate license before distributing the project for reuse.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Shivani Gundemoni**
+
+B.Tech Computer Science and Engineering Student
+
+- **GitHub:** [Shivaniyadav628](https://github.com/Shivaniyadav628)
+- **Project:** Linux System Health Monitor
+- **Technologies:** Bash, Python, Linux, Cron, SMTP
+
+This project was developed as part of my hands-on learning in Linux system administration, shell scripting, automation, and monitoring.
