@@ -1,0 +1,24 @@
+
+# Runtime logs
+*.log
+
+# Alert cooldown state
+.last_email_alert
+.scheduled_test_cooldown
+
+# Backup files
+*.backup
+*.pre_email
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+.health-monitor.env
+
+# Temporary test scripts
+scheduled_alert_test.sh
